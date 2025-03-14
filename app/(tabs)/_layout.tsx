@@ -4,7 +4,7 @@ import { Platform } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'; // Import icons from expo-vector-icons
 
 export default function TabLayout() {
-  const activeColor = '#000080';
+  const activeColor = '#009900';
   const inactiveColor = '#B0B0B0'; // Gray for inactive icons
 
   return (

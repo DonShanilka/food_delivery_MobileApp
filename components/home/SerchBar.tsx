@@ -3,9 +3,10 @@ import { TextInput, View } from 'react-native'
 
 function SerchBar() {
   return (
-    <View className='bg-red-400 h-15 top-20 w-11/12 left-0 right-0 m-auto rounded-full'>
-      <TextInput placeholder='Search'/>
+    <><View className='bg-gray-200 h-30 w-11/12 rounded-3xl top-20 left-0 right-0 m-auto absolute text-xs'>
+      <TextInput placeholder='Search' className='text-2xl'/>
     </View>
+    </>
   )
 }
 
