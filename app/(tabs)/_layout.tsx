@@ -4,7 +4,7 @@ import { Platform } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'; // Import icons from expo-vector-icons
 
 export default function TabLayout() {
-  const activeColor = '#000000';
+  const activeColor = '#000080';
   const inactiveColor = '#B0B0B0'; // Gray for inactive icons
 
   return (
@@ -15,8 +15,6 @@ export default function TabLayout() {
           ios: {
             position: 'absolute',
             backgroundColor: 'white',
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
             height: 60,
             shadowColor: '#000',
             shadowOffset: { width: 0, height: -2 },
@@ -25,10 +23,8 @@ export default function TabLayout() {
           },
           default: {
             backgroundColor: 'white',
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-            height: 60,
-            elevation: 5, // Shadow for Android
+            height: 50,
+            elevation: 5, 
           },
         }),
       }}
