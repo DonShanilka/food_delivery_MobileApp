@@ -1,5 +1,5 @@
 import { StyleSheet, Image, Platform, ScrollView } from 'react-native';
-
+import React from 'react';
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';

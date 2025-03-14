@@ -1,10 +1,13 @@
-import { Image, StyleSheet, Platform, ScrollView, Text } from 'react-native';
+import { Image, StyleSheet, Platform, ScrollView, Text, View } from 'react-native';
 import "../../global.css"
+import React from 'react';
 
 export default function HomeScreen() {
   return (
-    <ScrollView className='bg-cyan-950 h-full w-full'>
-      <Text className='text-cyan-200'>Hellow Shanilka</Text>
+    <ScrollView className='bg-green-50 h-auto w-full'>
+      <View className='bg-slate-500 h-48 w-10/12 absolute'>
+
+      </View>
     </ScrollView>
   );
 }
