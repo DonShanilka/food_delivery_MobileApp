@@ -7,7 +7,7 @@ import SerchBar from "@/components/home/SerchBar";
 export default function HomeScreen() {
   return (
     <ScrollView className="bg-white h-auto w-full">
-      <SerchBar />
+      <SerchBar/>
       <View className="top-52 w-11/12 left-0 right-0 m-auto rounded-3xl">
         <OfferCard />
       </View>

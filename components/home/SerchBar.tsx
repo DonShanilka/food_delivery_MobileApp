@@ -1,13 +1,17 @@
-import React from 'react'
-import { TextInput, View } from 'react-native'
+import React from "react";
+import { TextInput, View } from "react-native";
+import { Search } from "lucide-react-native"; 
 
-function SerchBar() {
+function SearchBar() {
   return (
-    <><View className='bg-gray-200 h-30 w-11/12 rounded-3xl top-20 left-0 right-0 m-auto absolute text-xs'>
-      <TextInput placeholder='Search' className='text-2xl'/>
+    <View className="bg-gray-200 h-12 w-11/12 rounded-full absolute top-20 left-0 right-0 m-auto">
+      <TextInput
+        placeholder="Search"
+        className="text-lg text-gray-700"
+      />
+      <Search size={24} color="gray" className="right-0"/>
     </View>
-    </>
-  )
+  );
 }
 
-export default SerchBar
+export default SearchBar;
