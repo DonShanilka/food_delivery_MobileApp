@@ -64,7 +64,7 @@ export default function OfferCard() {
         <View key={item.id}>
           <Image
             source={{ uri: item.url }}
-            style={{ width: imageWidth, height: 150 }}
+            style={{ width: imageWidth, height: 120 }}
           />
           {/* <Text className="mt-2 text-lg font-bold">{item.title}</Text> */}
         </View>
