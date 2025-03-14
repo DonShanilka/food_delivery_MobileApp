@@ -25,26 +25,27 @@ export default function OfferCard() {
     },
   ];
 
-  const scrollViewRef = useRef(null);  
-  const [scrollPosition, setScrollPosition] = useState(0); // Track the scroll position
+  const scrollViewRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0); 
 
   const screenWidth = Dimensions.get("window").width;
-  const imageWidth = screenWidth * 0.9; // 90% of screen width
+  const imageWidth = screenWidth * 1; 
+
+  const intervalRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (scrollViewRef.current) {
-        const newPosition = scrollPosition + imageWidth;
+    intervalRef.current = setInterval(() => {
+      setScrollPosition((prevPosition) => {
+        const newPosition = prevPosition + imageWidth;
         if (newPosition >= imageWidth * imageData.length) {
-          setScrollPosition(0); // Reset to the beginning
-        } else {
-          setScrollPosition(newPosition); // Move to the next image
+          return 0; 
         }
-      }
-    }, 4000); // Scroll every 4 seconds
+        return newPosition; 
+      });
+    }, 3000);
 
-    return () => clearInterval(interval); // Clear the interval when the component unmounts
-  }, [scrollPosition]); // Effect runs when scrollPosition changes
+    return () => clearInterval(intervalRef.current);
+  }, [imageWidth, imageData.length]);
 
   useEffect(() => {
     if (scrollViewRef.current) {
@@ -54,18 +55,18 @@ export default function OfferCard() {
 
   return (
     <ScrollView
-      ref={scrollViewRef}  // Reference the ScrollView
+    className="rounded-3xl"
+      ref={scrollViewRef}  
       horizontal={true}
-      className="bg-slate-600 top-72 w-11/12 left-0 right-0 m-auto"
-      showsHorizontalScrollIndicator={false}
+      // showsHorizontalScrollIndicator={false}
     >
       {imageData.map((item) => (
-        <View key={item.id} className="bg-white rounded-lg shadow-lg p-4 mb-4 items-center">
+        <View key={item.id}>
           <Image
             source={{ uri: item.url }}
-            style={{ width: imageWidth, height: 200 }}
+            style={{ width: imageWidth, height: 150 }}
           />
-          <Text className="mt-2 text-lg font-bold">{item.title}</Text>
+          {/* <Text className="mt-2 text-lg font-bold">{item.title}</Text> */}
         </View>
       ))}
     </ScrollView>
