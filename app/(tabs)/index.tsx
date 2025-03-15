@@ -4,6 +4,8 @@ import React from "react";
 import OfferCard from "@/components/home/OfferCard";
 import SerchBar from "@/components/home/SerchBar";
 import Icon from "react-native-vector-icons/FontAwesome";
+import PopulorFoods from "@/components/home/FoodCards";
+import FoodCards from "@/components/home/FoodCards";
 
 export default function HomeScreen() {
   return (
@@ -19,7 +21,7 @@ export default function HomeScreen() {
       </View>
 
       {/* Offer Card */}
-      <View className="top-32 w-11/12 left-0 right-0 m-auto rounded-3xl">
+      <View className="top-28 w-11/12 left-0 right-0 m-auto rounded-3xl">
         <Text className="mb-4 font-bold ml-1">Special Offers</Text>
 
         <TouchableOpacity className="absolute right-0 h-5 w-16 bg-green-100 rounded-full">
@@ -28,6 +30,9 @@ export default function HomeScreen() {
         {/* Offer Card */}
         <OfferCard />
       </View>
+
+      {/* PopulorFoods */}
+      <FoodCards/>
     </ScrollView>
   );
 }
