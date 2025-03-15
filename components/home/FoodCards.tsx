@@ -169,28 +169,49 @@ function FoodCards() {
 
   return (
     <View className="h-full w-11/12 top-48 left-0 right-0 m-auto mt-10">
-      <Text className="font-bold m-1">Populer Foods</Text>
-      <View className="w-full mt-2 gap-4">
-      {foodItems.map((foods) => (
-        <View key={foods.id} className="" style={{
-          marginBottom: 15,
-          padding: 10,
-          borderRadius: 0,
-          borderBottomWidth: 1,
-          borderColor: "#e6e6e6"
-        }}>
-          <Text className="text-black">{foods.name}</Text>
-          <Text>{foods.price}</Text>
-          <Image
-            source={{ uri: foods.image }}
-            style={{ width: 100, height: 100, borderRadius: 10 }}
-          />
-          <Text>{foods.shopName}</Text>
-          <TouchableOpacity className="absolute w-6 h-6" style={{backgroundColor:'#009900', borderRadius:5}}>
-            <Icon name="plus" className="items-center"/>
-          </TouchableOpacity>
-        </View>
-      ))}
+      <Text className="font-bold mt-1">Populer Foods</Text>
+      <View className="w-full mt-2">
+        {foodItems.map((foods) => (
+          <View
+            key={foods.id}
+            className=""
+            style={{
+              height:120,
+              marginBottom: 15,
+              padding: 1,
+              borderRadius: 0,
+              borderBottomWidth: 1,
+              borderColor: "#e6e6e6",
+            }}
+          >
+            <Text
+              style={{ color: "#006600", fontSize: 20, fontWeight: "500",top:0 , marginBottom:8}}
+            >
+              {foods.name}
+            </Text>
+            <Text>{foods.price}</Text>
+            <Image
+              source={{ uri: foods.image }}
+              style={{
+                width: 80,
+                height: 65,
+                borderRadius: 5,
+                borderColor:'#e6e6e6',
+                borderWidth: 1,
+                position: "absolute",
+                top: 15,
+                right: 0,
+              }}
+            />
+            <Text>{foods.shopName}</Text>
+            <TouchableOpacity
+              className="absolute h-5 bg-green-100 right-4 top-14"
+              style={{borderRadius:4, width:48, borderColor:'#006622', borderWidth:1}}
+            >
+              <Icon name="plus" style={{top:0, left:0, right:0, bottom:0, margin:'auto'}} color={"#006622"}/>
+            </TouchableOpacity>
+          </View>
+        ))}
       </View>
     </View>
   );
