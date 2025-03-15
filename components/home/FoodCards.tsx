@@ -170,24 +170,24 @@ function FoodCards() {
   return (
     <View className="h-full w-11/12 top-48 left-0 right-0 m-auto mt-10">
       <Text className="font-bold m-1">Populer Foods</Text>
-      <View className="w-full mt-2 grid grid-cols-3 gap-4">
+      <View className="w-full mt-2 gap-4">
       {foodItems.map((foods) => (
-        <View key={foods.id} className="border-2 border-gray-500 rounded-md items-center" style={{
+        <View key={foods.id} className="" style={{
           marginBottom: 15,
           padding: 10,
-          borderRadius: 10,
-          borderWidth: 2,
+          borderRadius: 0,
+          borderBottomWidth: 1,
           borderColor: "#e6e6e6"
         }}>
-          <Text>{foods.name}</Text>
+          <Text className="text-black">{foods.name}</Text>
           <Text>{foods.price}</Text>
           <Image
             source={{ uri: foods.image }}
             style={{ width: 100, height: 100, borderRadius: 10 }}
           />
           <Text>{foods.shopName}</Text>
-          <TouchableOpacity className="absolute w-3 h-3 bg-green-600 rounded-full">
-            <Icon name="plus"/>
+          <TouchableOpacity className="absolute w-6 h-6" style={{backgroundColor:'#009900', borderRadius:5}}>
+            <Icon name="plus" className="items-center"/>
           </TouchableOpacity>
         </View>
       ))}
