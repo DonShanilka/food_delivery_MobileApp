@@ -1,21 +1,33 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { icons } from "@/assets/assets";
 
 export default function CartPage() {
   const navigation = useNavigation();
 
-  return (
-    <View className="flex-1 justify-center items-center bg-white">
-      <Text className="text-lg font-bold">Your Cart</Text>
+  const addToCartItem = [];
 
-      {/* Close button to return to previous screen */}
+  return (
+    <ScrollView className=" bg-green-200">
       <TouchableOpacity 
-        className="mt-5 px-4 py-2 bg-red-500 rounded"
+        className="bg-red-500 rounded top-0 w-10"
         onPress={() => navigation.goBack()}
       >
         <Text className="text-white">Close</Text>
       </TouchableOpacity>
-    </View>
+
+      {addToCartItem.length === 0 ? (
+        <View className="bg-blue-300 h-96">
+          <Text className="text-white">First View - Cart is Empty</Text>
+          <Image src={icons.orderCardBgIcon}/>
+        </View>
+      ) : (
+        // Second View: Displayed if addToCartItem has items
+        <View className="bg-red-300 h-96">
+          <Text className="text-white">Second View - Items in Cart</Text>
+        </View>
+      )}
+    </ScrollView>
   );
 }
