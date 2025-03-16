@@ -1,14 +1,18 @@
-import { Tabs } from 'expo-router';
 import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { FontAwesome } from '@expo/vector-icons';
 import { Platform } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons'; // Import icons from expo-vector-icons
+import HomeScreen from '../(tabs)/index';
+import ExploreScreen from '../(tabs)/explore';
 
-export default function TabLayout() {
+const Tab = createBottomTabNavigator();
+
+export default function Tabs() {
   const activeColor = '#009900';
-  const inactiveColor = '#B0B0B0'; // Gray for inactive icons
+  const inactiveColor = '#B0B0B0';
 
   return (
-    <Tabs
+    <Tab.Navigator
       screenOptions={{
         headerShown: false,
         tabBarStyle: Platform.select({
@@ -29,8 +33,9 @@ export default function TabLayout() {
         }),
       }}
     >
-      <Tabs.Screen
-        name="index"
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
         options={{
           title: 'Home',
           tabBarIcon: ({ focused }) => (
@@ -38,8 +43,9 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="explore"
+      <Tab.Screen
+        name="Explore"
+        component={ExploreScreen}
         options={{
           title: 'Explore',
           tabBarIcon: ({ focused }) => (
@@ -47,6 +53,6 @@ export default function TabLayout() {
           ),
         }}
       />
-    </Tabs>
+    </Tab.Navigator>
   );
 }
