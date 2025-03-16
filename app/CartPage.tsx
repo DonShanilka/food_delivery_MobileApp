@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import AddCartItem from "@/components/cart/AddCartItem";
-
 const carticon = require("../assets/icons/cartIcon.png");
 
 export default function CartPage() {
@@ -43,7 +42,7 @@ export default function CartPage() {
         </View>
       ) : (
         // Second View: Displayed if addToCartItem has items
-        <View className="bg-red-300 h-96">
+        <View className="h-auto top-28">
           <Text className="text-white">Second View - Items in Cart</Text>
           <AddCartItem/>
         </View>
