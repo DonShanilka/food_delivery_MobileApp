@@ -177,24 +177,23 @@ function FoodCards() {
             className=""
             style={{
               height:120,
-              marginBottom: 15,
-              padding: 1,
+              marginBottom: 10,
               borderRadius: 0,
               borderBottomWidth: 1,
               borderColor: "#e6e6e6",
             }}
           >
             <Text
-              style={{ color: "#006600", fontSize: 20, fontWeight: "500",top:0 , marginBottom:8}}
+              style={{ color: "#006600", fontSize: 20, fontWeight: "500",top:15}}
             >
               {foods.name}
             </Text>
-            <Text>{foods.price}</Text>
+            <Text className="top-4">{foods.price}</Text>
             <Image
               source={{ uri: foods.image }}
               style={{
                 width: 80,
-                height: 65,
+                height: 75,
                 borderRadius: 5,
                 borderColor:'#e6e6e6',
                 borderWidth: 1,
@@ -203,9 +202,9 @@ function FoodCards() {
                 right: 0,
               }}
             />
-            <Text>{foods.shopName}</Text>
+            <Text className="top-5">{foods.shopName}</Text>
             <TouchableOpacity
-              className="absolute h-5 bg-green-100 right-4 top-14"
+              className="absolute h-5 bg-green-100 right-4 top-20"
               style={{borderRadius:4, width:48, borderColor:'#006622', borderWidth:1}}
             >
               <Icon name="plus" style={{top:0, left:0, right:0, bottom:0, margin:'auto'}} color={"#006622"}/>
