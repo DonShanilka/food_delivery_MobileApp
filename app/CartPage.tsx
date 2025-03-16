@@ -1,13 +1,14 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import AddCartItem from "@/components/cart/AddCartItem";
 
 const carticon = require("../assets/icons/cartIcon.png");
 
 export default function CartPage() {
   const navigation = useNavigation();
 
-  const addToCartItem = [];
+  const addToCartItem = [1];
 
   return (
     <ScrollView className=" bg-white">
@@ -28,7 +29,7 @@ export default function CartPage() {
           />
           <TouchableOpacity
             className="bg-black rounded left-0 right-0 m-auto w-40 h-8"
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate("(tabs)")}
             style={{top:50}}
           >
             <Text className="text-white text-center top-0 bottom-0 m-auto font-bold">
@@ -44,6 +45,7 @@ export default function CartPage() {
         // Second View: Displayed if addToCartItem has items
         <View className="bg-red-300 h-96">
           <Text className="text-white">Second View - Items in Cart</Text>
+          <AddCartItem/>
         </View>
       )}
     </ScrollView>
