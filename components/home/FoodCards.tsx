@@ -174,17 +174,17 @@ function FoodCards() {
         {foodItems.map((foods) => (
           <View
             key={foods.id}
-            className=""
-            style={{
-              height:120,
-              marginBottom: 10,
-              borderRadius: 0,
-              borderBottomWidth: 1,
-              borderColor: "#e6e6e6",
-            }}
+            className="h-30 mb-2 border-b border-gray-200"
+            // style={{
+            //   height:120,
+            //   marginBottom: 10,
+            //   borderRadius: 0,
+            //   borderBottomWidth: 1,
+            //   borderColor: "#e6e6e6",
+            // }}
           >
             <Text
-              style={{ color: "#006600", fontSize: 20, fontWeight: "500",top:15}}
+              className="text-green-700 text-xl font-medium mt-4"
             >
               {foods.name}
             </Text>
@@ -204,8 +204,7 @@ function FoodCards() {
             />
             <Text className="top-5">{foods.shopName}</Text>
             <TouchableOpacity
-              className="absolute h-5 bg-green-100 right-4 top-20"
-              style={{borderRadius:4, width:48, borderColor:'#006622', borderWidth:1}}
+              className="absolute h-5 bg-green-100 right-4 top-20 rounded-md w-12 border border-green-700"
             >
               <Icon name="plus" style={{top:0, left:0, right:0, bottom:0, margin:'auto'}} color={"#006622"}/>
             </TouchableOpacity>

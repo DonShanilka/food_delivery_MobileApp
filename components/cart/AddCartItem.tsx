@@ -1,5 +1,6 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { TouchableOpacity, Image, Text, View } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 function AddCartItem() {
   const cartItems = [
@@ -22,54 +23,35 @@ function AddCartItem() {
   ];
 
   let subTotal: number = 0;
-
   cartItems.forEach((item) => {
     subTotal += item.price;
   });
 
   return (
-    <View className="w-11/12 h-auto left-0 right-0 m-auto">
+    <View className="w-11/12 h-auto mx-auto">
       {cartItems.map((value) => (
         <View
           key={value.id}
-          style={{
-            height: 90,
-            marginBottom: 10,
-            borderRadius: 10,
-            borderWidth:1,
-            borderColor: "#e6e6e6",
-            backgroundColor: "#f2f2f2",
-          }}
+          className="h-24 mb-3 rounded-lg border border-gray-300 bg-gray-200 p-3"
         >
-          <Text style={{ left: 110, marginTop: 13, fontWeight: "bold" }}>
-            {value.name}
-          </Text>
-          <Text
-            style={{
-              left: 110,
-              marginTop: 1,
-              fontWeight: "400",
-              color: "#8c8c8c",
-            }}
-          >
-            {value.shopName}
-          </Text>
+          <Text className="ml-28 mt-2 font-bold">{value.name}</Text>
+          <Text className="ml-28 mt-1 text-gray-600">{value.shopName}</Text>
           <Image
             source={{ uri: value.image }}
-            style={{
-              width: 80,
-              height: 75,
-              borderRadius: 0,
-              position: "absolute",
-              top: 0,
-              bottom: 0,
-              margin: "auto",
-              left: 10,
-            }}
+            className="w-20 h-16 absolute top-0 bottom-0 my-auto left-3"
           />
-          <Text style={{ left: 110, marginTop: 1, fontWeight: "bold" }}>
-            ${value.price}
-          </Text>
+          <Text className="ml-28 mt-1 font-bold">${value.price}</Text>
+
+          {/* Quantity Control (Plus & Minus) */}
+          <View className="absolute flex-row items-center justify-center bottom-2 right-5">
+            <TouchableOpacity className="bg-emerald-500 w-6 h-6 rounded-full items-center justify-center">
+              <Icon name="minus" size={12} color="#fff" />
+            </TouchableOpacity>
+            <Text className="mx-4 font-bold">1</Text>
+            <TouchableOpacity className="bg-emerald-500 w-6 h-6 rounded-full items-center justify-center">
+              <Icon name="plus" size={12} color="#fff" />
+            </TouchableOpacity>
+          </View>
         </View>
       ))}
     </View>
