@@ -47,7 +47,7 @@ function AddCartItem() {
           <Ionicons
             name="trash-bin"
             size={26}
-            color="red"
+            color="black"
             className="absolute top-4 right-1"
           />
         </TouchableOpacity>
@@ -69,7 +69,7 @@ function AddCartItem() {
         {cartItems.map((value) => (
           <View
             key={value.id}
-            className="h-32 w-11/12 left-0 right-0 m-auto mt-3 mb-1 rounded-lg border border-gray-200 bg-gray-100 p-3"
+            className="h-32 w-11/12 left-0 right-0 m-auto mt-3 mb-1 rounded-lg border border-gray-100 bg-gray-50 p-3"
           >
             <Text className="ml-28 mt-2 font-bold">{value.name}</Text>
             <Text className="ml-28 mt-1 text-gray-600">{value.shopName}</Text>
