@@ -8,10 +8,11 @@ const carticon = require("../assets/icons/cartIcon.png");
 export default function CartPage() {
   const navigation = useNavigation();
 
-  const addToCartItem = [];
+  const addToCartItem = [1];
 
   return (
     <>
+    <View className="absolute bg-white h-full w-full">
       {addToCartItem.length === 0 ? (
         <View className="bg-white h-full w-full top-0">
           <Image
@@ -48,7 +49,7 @@ export default function CartPage() {
         <AddCartItem/>
         </>
       )}
-
+    </View>
     </>
   );
 }

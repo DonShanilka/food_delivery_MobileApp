@@ -1,6 +1,7 @@
 import React from "react";
 import { TouchableOpacity, Image, Text, View, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import Ionicons from '@expo/vector-icons/Ionicons';
 import PlaceOrder from "./PlaceOrder";
 
 function AddCartItem() {
@@ -154,11 +155,19 @@ function AddCartItem() {
 
   return (
     <>
-    <ScrollView className="w-full top-20 h-auto mx-auto bg-white">
+    {/* BackTo Home */}
+    <View className="bg-white w-11/12 h-16 absolute top-10 left-5 right-5">
+      <Ionicons name="trash-bin" size={24} color="red" className="absolute top-5 right-0"/>
+      <Ionicons name="arrow-back-outline" size={24} color="black" className="absolute top-5 bg-gray-100 rounded-full"/>
+      <Text className="top-4 left-12 font-bold text-2xl">Cart</Text>
+    </View>
+
+    {/* Items */}
+    <ScrollView className="w-full absolute top-32 h-3/5 bg-white">
       {cartItems.map((value) => (
         <View
           key={value.id}
-          className="h-24 w-11/12 left-0 right-0 m-auto mb-3 rounded-lg border border-gray-200 bg-gray-100 p-3"
+          className="h-32 w-11/12 left-0 right-0 m-auto mt-3 mb-1 rounded-lg border border-gray-200 bg-gray-100 p-3"
         >
           <Text className="ml-28 mt-2 font-bold">{value.name}</Text>
           <Text className="ml-28 mt-1 text-gray-600">{value.shopName}</Text>
@@ -185,6 +194,8 @@ function AddCartItem() {
         </View>
       ))}
     </ScrollView>
+
+    {/* SubTotal */}
     <PlaceOrder/>
     </>
   );
