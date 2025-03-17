@@ -8,12 +8,12 @@ const carticon = require("../assets/icons/cartIcon.png");
 export default function CartPage() {
   const navigation = useNavigation();
 
-  const addToCartItem = [1];
+  const addToCartItem = [];
 
   return (
     <>
       {addToCartItem.length === 0 ? (
-        <View className="bg-white h-96 w-full top-56">
+        <View className="bg-white h-full w-full top-0">
           <Image
             source={carticon}
             style={{
@@ -21,22 +21,21 @@ export default function CartPage() {
               height: 120,
               left: -15,
               right: 0,
-              top: 95,
+              top: 280,
               bottom: 0,
               margin: "auto",
               zIndex: 5,
             }}
           />
           <TouchableOpacity
-            className="bg-black rounded left-0 right-0 m-auto w-40 h-8"
+            className="bg-black rounded top-0 left-0 right-0 m-auto w-56 h-12"
             onPress={() => navigation.navigate("(tabs)")}
-            style={{top:50}}
           >
             <Text className="text-white text-center top-0 bottom-0 m-auto font-bold">
               Go To Shopping
             </Text>
           </TouchableOpacity>
-          <Text className="text-black text-center left-0 right-0 m-auto w-10/12">
+          <Text className="text-black text-center bottom-30 left-0 right-0 m-auto w-10/12">
             Cart is Empty. Save cart items here to get notified when the outlet
             is available
           </Text>
