@@ -15,7 +15,7 @@ export default function HomeScreen() {
       {/* SearchBar and OrderCart */}
       <View className="bg-blue-500 w-11/12 left-0 right-0 m-auto">
         <TouchableOpacity
-          className="bg-white w-6 h-6 items-center absolute top-5 right-0"
+          className="bg-white w-6 h-6 items-center absolute top-10 right-0"
           onPress={() => navigation.navigate("CartPage")} // Ensure it matches the StackNav.Screen name
         >
           <Icon name="shopping-cart" size={20} />
@@ -26,7 +26,7 @@ export default function HomeScreen() {
       </View>
 
       {/* Offer Card */}
-      <View className="top-28 w-11/12 left-0 right-0 m-auto rounded-3xl">
+      <View className="top-36 w-11/12 left-0 right-0 m-auto rounded-3xl">
         <Text className="mb-4 font-bold ml-1">Special Offers</Text>
 
         <TouchableOpacity className="absolute right-0 h-5 w-16 bg-green-100 rounded-full">
