@@ -156,7 +156,7 @@ function AddCartItem() {
           <Ionicons name="cart-outline" size={80} color="#cccccc" />
           <Text className="text-xl text-gray-400 mt-4">Your cart is empty</Text>
           <TouchableOpacity 
-            className="mt-6 bg-emerald-500 px-6 py-3 rounded-full"
+            className="mt-6 bg-emerald-800 px-6 py-3 rounded-md"
             onPress={() => navigation.goBack()}
           >
             <Text className="text-white font-bold">Continue Shopping</Text>
@@ -166,11 +166,11 @@ function AddCartItem() {
 
       {/* Items */}
       {cartItems.length > 0 && (
-        <ScrollView className="w-full absolute top-28 h-80 bg-white">
+        <ScrollView className="w-full absolute top-28 h-2/3 bg-white">
           {cartItems.map((item) => (
             <View
               key={item.id}
-              className="h-28 w-11/12 left-0 right-0 m-auto mt-3 mb-1 rounded-lg border border-gray-100 bg-gray-50 p-3"
+              className="h-28 w-11/12 left-0 right-0 m-auto mt-4 mb-1 rounded-lg border border-gray-100 bg-gray-50 p-3"
             >
               <Text className="ml-28 mt-0 font-bold">{item.name}</Text>
               <Text className="ml-28 mt-1 text-gray-600">{item.shopName}</Text>
