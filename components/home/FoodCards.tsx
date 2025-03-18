@@ -122,13 +122,13 @@ function FoodCards() {
               marginHorizontal: 16,
             }}
           >
-            <Text className="text-green-800 text-2xl font-bold mt-4 left-40">
+            <Text className="text-green-800 text-2xl font-bold mt-2 left-40">
               {foods.name}
             </Text>
-            <Text className="top-2 left-40 w-60 text-sm text-gray-500">
+            <Text className="top-2 left-40 mt-0 w-60 text-sm text-gray-600">
               {foods.description}
             </Text>
-            <Text className="top-2 left-40  text-sm text-gray-500">
+            <Text className="top-2 left-40 mt-2 text-sm text-gray-400">
               {foods.shopName}
             </Text>
             <Text className="top-4 left-40 text-green-800 text-2xl font-bold">
