@@ -1,9 +1,13 @@
+import { useNavigation } from "expo-router";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Image, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 function FoodCards() {
+
+  const navigation = useNavigation();
+
   const foodItems = [
     {
       id: 1,
@@ -172,7 +176,8 @@ function FoodCards() {
       <Text className="font-bold mt-1">Populer Foods</Text>
       <View className="w-full mt-0">
         {foodItems.map((foods) => (
-          <View
+          <TouchableOpacity
+          onPress={() => navigation.navigate("FoodDetails")}
             key={foods.id}
             className="h-32 mb-2 border-b border-gray-200"
             // style={{
@@ -209,7 +214,7 @@ function FoodCards() {
             >
               <Icon name="plus" style={{top:0, left:0, right:0, bottom:0, margin:'auto'}} color={"#006622"}/>
             </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         ))}
       </View>
     </View>
