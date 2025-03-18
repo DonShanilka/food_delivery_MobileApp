@@ -3,6 +3,7 @@ import { TouchableOpacity, Image, Text, View, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import PlaceOrder from "./PlaceOrder";
+import { useNavigation } from "expo-router";
 
 function AddCartItem() {
   const cartItems = [
@@ -37,6 +38,8 @@ function AddCartItem() {
     subTotal += item.price;
   });
 
+  const navigate = useNavigation();
+
   return (
     <>
       {/* BackTo Home and Delete All Button */}
@@ -49,11 +52,12 @@ function AddCartItem() {
             size={26}
             color="black"
             className="absolute top-4 right-1"
+            
           />
         </TouchableOpacity>
 
         {/* BackToHome */}
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate.goBack()}>
           <Ionicons
             name="arrow-back-outline"
             size={24}
