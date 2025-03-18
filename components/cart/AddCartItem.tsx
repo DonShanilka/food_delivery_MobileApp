@@ -38,6 +38,33 @@ function AddCartItem() {
         "https://i.pinimg.com/236x/a9/fd/bd/a9fdbd00141682c6a9e848c43dbf4c5c.jpg",
       shopName: "Pasta Primo",
     },
+    {
+      id: 4,
+      name: "Margherita Pizza",
+      price: 15,
+      quantity: 1,
+      image:
+        "https://i.pinimg.com/236x/a9/fd/bd/a9fdbd00141682c6a9e848c43dbf4c5c.jpg",
+      shopName: "Bella Pizza",
+    },
+    {
+      id: 5,
+      name: "Sushi Platter",
+      price: 22,
+      quantity: 1,
+      image:
+        "https://i.pinimg.com/236x/a9/fd/bd/a9fdbd00141682c6a9e848c43dbf4c5c.jpg",
+      shopName: "Tokyo Delights",
+    },
+    {
+      id: 6,
+      name: "Spaghetti Carbonara",
+      price: 18,
+      quantity: 1,
+      image:
+        "https://i.pinimg.com/236x/a9/fd/bd/a9fdbd00141682c6a9e848c43dbf4c5c.jpg",
+      shopName: "Pasta Primo",
+    },
   ];
 
   // State for cart items
@@ -139,17 +166,17 @@ function AddCartItem() {
 
       {/* Items */}
       {cartItems.length > 0 && (
-        <ScrollView className="w-full absolute top-32 h-3/5 bg-white">
+        <ScrollView className="w-full absolute top-28 h-80 bg-white">
           {cartItems.map((item) => (
             <View
               key={item.id}
-              className="h-32 w-11/12 left-0 right-0 m-auto mt-3 mb-1 rounded-lg border border-gray-100 bg-gray-50 p-3"
+              className="h-28 w-11/12 left-0 right-0 m-auto mt-3 mb-1 rounded-lg border border-gray-100 bg-gray-50 p-3"
             >
-              <Text className="ml-28 mt-2 font-bold">{item.name}</Text>
+              <Text className="ml-28 mt-0 font-bold">{item.name}</Text>
               <Text className="ml-28 mt-1 text-gray-600">{item.shopName}</Text>
               <Image
                 source={{ uri: item.image }}
-                className="w-20 h-16 absolute top-0 bottom-0 my-auto left-3"
+                className="w-24 h-24 absolute top-2 bottom-0 my-auto left-3"
               />
               <Text className="ml-28 mt-1 font-bold">${item.price}</Text>
 
