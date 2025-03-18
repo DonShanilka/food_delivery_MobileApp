@@ -172,7 +172,7 @@ function FoodCards() {
   ];
 
   return (
-    <ScrollView className="absolute h-96 w-11/12 top-96 left-0 right-0 ">
+    <ScrollView className="absolute h-2/4 w-11/12 top-2/4 left-5 right-5">
       <Text className="font-bold mt-3 text-xl">Populer Foods</Text>
       <View className="w-full mt-0">
         {foodItems.map((foods) => (
