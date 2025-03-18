@@ -1,37 +1,96 @@
-import React from "react";
-import { Text, TouchableOpacity } from "react-native";
-import { View } from "react-native";
-import  Icon  from "react-native-vector-icons/FontAwesome";
+// PlaceOrder.tsx
+import React, { useState } from "react";
+import { Text, TouchableOpacity, TextInput, View, Alert } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
-function PlaceOrder() {
+function PlaceOrder({ subTotal, delivery, promoDiscount, setPromoDiscount }) {
+  const [promoCode, setPromoCode] = useState("");
+  const [promoApplied, setPromoApplied] = useState(false);
+
+  // Available promo codes (in a real app, these would come from an API)
+  const availablePromoCodes = {
+    "FIRST10": 10,
+    "WELCOME20": 20,
+    "SPECIAL15": 15
+  };
+
+  // Apply promo code
+  const applyPromoCode = () => {
+    if (!promoCode.trim()) {
+      Alert.alert("Error", "Please enter a promo code");
+      return;
+    }
+
+    const discountPercentage = availablePromoCodes[promoCode.toUpperCase()];
+    
+    if (discountPercentage) {
+      const discount = (subTotal * discountPercentage) / 100;
+      setPromoDiscount(discount);
+      setPromoApplied(true);
+      Alert.alert("Success", `${discountPercentage}% discount applied!`);
+    } else {
+      Alert.alert("Invalid Code", "This promo code is invalid or expired");
+      setPromoDiscount(0);
+      setPromoApplied(false);
+    }
+  };
+
+  // Calculate total price
+  const calculateTotal = () => {
+    return (subTotal + delivery - promoDiscount).toFixed(2);
+  };
+
   return (
     <View className="w-full h-96 absolute bottom-0 bg-white">
-
       {/* Promotion */}
-      <View className="w-11/12 bg-emerald-50 h-12 absolute top-4 left-5 right-5 rounded-lg border-emerald-200 border">
-      <Icon name="dollar" size={20} className="absolute top-5 bottom-0 m-auto"/>
-        <Text className="">Promo Code</Text>
+      <View className="w-11/12 bg-emerald-50 h-12 absolute top-4 left-5 right-5 rounded-lg border-emerald-200 border flex-row items-center pl-3 pr-3">
+        <Icon name="ticket" size={16} color="#10b981" />
+        <TextInput
+          placeholder="Enter promo code"
+          className="flex-1 ml-3 h-full"
+          value={promoCode}
+          onChangeText={setPromoCode}
+          editable={!promoApplied}
+        />
+        <TouchableOpacity 
+          className={`px-4 py-1 rounded-lg ${promoApplied ? 'bg-gray-300' : 'bg-emerald-500'}`}
+          onPress={applyPromoCode}
+          disabled={promoApplied}
+        >
+          <Text className="color-white font-bold">
+            {promoApplied ? "Applied" : "Apply"}
+          </Text>
+        </TouchableOpacity>
       </View>
 
       {/* Cal Total */}
       <View className="w-11/12 bg-white h-48 absolute top-24 left-5 right-5 m-auto rounded-lg">
         <View className="h-14 w-full border-b-2 border-gray-200">
           <Text className="absolute left-0 top-4 font-bold text-gray-400">SubTotal</Text>
-          <Text className="absolute right-0 top-4 font-bold text-black text-xl">$21</Text>
+          <Text className="absolute right-0 top-4 font-bold text-black text-xl">${subTotal.toFixed(2)}</Text>
         </View>
         <View className="h-14 w-full border-b-2 border-gray-200">
           <Text className="absolute left-0 top-4 font-bold text-gray-400">Delivery</Text>
-          <Text className="absolute right-0 top-4 font-bold text-black text-xl">$5</Text>
+          <Text className="absolute right-0 top-4 font-bold text-black text-xl">${delivery.toFixed(2)}</Text>
         </View>
+        {promoDiscount > 0 && (
+          <View className="h-14 w-full border-b-2 border-gray-200">
+            <Text className="absolute left-0 top-4 font-bold text-green-600">Discount</Text>
+            <Text className="absolute right-0 top-4 font-bold text-green-600 text-xl">-${promoDiscount.toFixed(2)}</Text>
+          </View>
+        )}
         <View className="h-14 w-full">
           <Text className="absolute left-0 top-4 font-bold text-gray-800 text-2xl">Total</Text>
-          <Text className="absolute right-0 top-4 font-bold text-emerald-600 text-2xl">$26.43</Text>
+          <Text className="absolute right-0 top-4 font-bold text-emerald-600 text-2xl">${calculateTotal()}</Text>
         </View>
       </View>
-      
+
       {/* Place Order Button */}
-      <TouchableOpacity className="w-11/12 bg-emerald-500 absolute z-10 h-12 bottom-8 left-5 right-5 rounded-full">
-        <Text className="text-center top-0 bottom-0 m-auto font-bold color-white">
+      <TouchableOpacity 
+        className="w-11/12 bg-emerald-500 absolute z-10 h-12 bottom-8 left-5 right-5 rounded-full justify-center"
+        onPress={() => Alert.alert("Success", "Your order has been placed successfully!")}
+      >
+        <Text className="text-center font-bold text-white">
           Place Order
         </Text>
       </TouchableOpacity>

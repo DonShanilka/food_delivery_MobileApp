@@ -54,7 +54,7 @@ const ProfileScreen = () => {
                 {item.label}
               </Text>
               {item.hasArrow && (
-                <Feather name="chevron-right" size={20} color="#999" />
+                <Feather name="chevron-right" size={20} color="#999"/>
               )}
             </TouchableOpacity>
           ))}
