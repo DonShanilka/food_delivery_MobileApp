@@ -12,14 +12,6 @@ const ProfileScreen = () => {
     { icon: <Feather name="log-out" size={20} color="#E74C3C" />, label: "Logout", hasArrow: true, textColor: "#E74C3C" }
   ];
 
-  // Bottom tab icons
-  const tabIcons = [
-    <Feather name="home" size={24} color="#999" />,
-    <Feather name="menu" size={24} color="#999" />,
-    <Feather name="plus-circle" size={30} color="#999" />,
-    <Feather name="bell" size={24} color="#999" />,
-    <Feather name="user" size={24} color="#2D6A4F" />
-  ];
 
   return (
     <SafeAreaView className="flex-1 bg-green-900">
@@ -28,17 +20,17 @@ const ProfileScreen = () => {
         <View className="relative">
           <Image
             source={{ uri: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330' }}
-            className="w-24 h-24 rounded-full border-2 border-white"
+            className="w-24 h-24 top-36 rounded-full border-2 border-white"
           />
-          <View className="absolute bottom-0 right-0 bg-white rounded-full w-8 h-8 justify-center items-center shadow">
+          <View className="absolute bottom-0 right-0 top-52 bg-white rounded-full w-8 h-8 justify-center items-center shadow">
             <Feather name="edit-2" size={16} color="#2D6A4F" />
           </View>
         </View>
-        <Text className="text-white text-xl font-semibold mt-4">Gracia Tya</Text>
+        <Text className="text-white text-xl font-semibold mt-4 top-36">Gracia Tya</Text>
       </View>
 
       {/* Content Section */}
-      <View className="flex-1 bg-white rounded-t-3xl px-5 pt-6">
+      <View className="flex-1 top-60 bg-white rounded-t-3xl px-5 pt-6">
         <ScrollView showsVerticalScrollIndicator={false}>
           {menuItems.map((item, index) => (
             <TouchableOpacity 
