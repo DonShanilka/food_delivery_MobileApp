@@ -16,9 +16,11 @@ export default function HomeScreen() {
         className="w-full h-96 bg-green-800"
         style={{ borderBottomRightRadius: 30, borderBottomLeftRadius: 30 }}
       >
-        <Text className="text-white text-3xl font-bold top-14 left-5">Hellow Shanilka !</Text>
+        <Text className="text-white text-xl font-bold top-20 left-5">Hellow Shanilka!</Text>
+        <Text className="text-white text-3xl font-bold top-20 left-5">Place Your Order</Text>
         <SerchBar/>
       </View>
+      <OfferCard/>
     </View>
   );
 }

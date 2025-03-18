@@ -55,7 +55,7 @@ export default function OfferCard() {
 
   return (
     <ScrollView
-  className="rounded-3xl top-0"
+  className="absolute rounded-3xl top-72 w-11/12 left-5"
   ref={scrollViewRef}
   horizontal={true}
   style={{
@@ -63,6 +63,7 @@ export default function OfferCard() {
     shadowOffset: { width: 6, height: 10}, 
     shadowOpacity: 1, 
     shadowRadius: 8, 
+    height: 160,
     elevation: 8, 
   }}
 >
@@ -70,7 +71,7 @@ export default function OfferCard() {
     <View key={item.id}>
       <Image
         source={{ uri: item.url }}
-        style={{ width: imageWidth, height: 140 }}
+        style={{ width: imageWidth, height: 160 }}
       />
       {/* <Text className="mt-2 text-lg font-bold">{item.title}</Text> */}
     </View>

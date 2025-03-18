@@ -6,7 +6,7 @@ function SearchBar() {
   return (
     <View
       className="text-lg text-gray-700 text-left
-    bg-white h-14 w-11/12 left-0 right-0 m-auto rounded-md top-0 border-2 border-gray-200"
+    bg-white h-14 w-11/12 left-0 right-0 m-auto rounded-md -top-4 border-2 border-gray-200"
     >
       <TextInput
         placeholder="Search"
