@@ -1,9 +1,10 @@
+import { useNavigation } from 'expo-router';
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import { HeartIcon, MinusIcon, PlusIcon, ShoppingCartIcon, StarIcon, ArrowLeftIcon } from 'react-native-heroicons/solid';
 
 function FoodDetails() {
-  const [quantity, setQuantity] = useState(2);
+  const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState('Medium');
   
   // Dummy data based on the image
@@ -30,11 +31,13 @@ function FoodDetails() {
   const increaseQuantity = () => setQuantity(quantity + 1);
   const decreaseQuantity = () => quantity > 1 && setQuantity(quantity - 1);
 
+  const navigate = useNavigation();
+
   return (
       <ScrollView className="flex-1 bg-white">
         {/* Header with back button */}
         <View className="px-4 pt-2 relative">
-          <TouchableOpacity className="rounded-full bg-gray-100 p-2 w-10 h-10 items-center justify-center">
+          <TouchableOpacity className="rounded-full bg-gray-100 p-2 w-10 h-10 items-center justify-center" onPress= {() => navigate.goBack()}>
             <ArrowLeftIcon size={20} color="#333" />
           </TouchableOpacity>
         </View>
