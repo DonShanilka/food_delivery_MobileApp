@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome } from '@expo/vector-icons';
 import { Platform } from 'react-native';
 import HomeScreen from '../(tabs)/index';
-import ExploreScreen from '../(tabs)/explore';
+import ExploreScreen from './ProfileScreen ';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,12 +44,12 @@ export default function Tabs() {
         }}
       />
       <Tab.Screen
-        name="Explore"
+        name="ProfileScreen"
         component={ExploreScreen}
         options={{
-          title: 'Explore',
+          title: 'Profile',
           tabBarIcon: ({ focused }) => (
-            <FontAwesome name="paper-plane" size={28} color={focused ? activeColor : inactiveColor} />
+            <FontAwesome name="user" size={28} color={focused ? activeColor : inactiveColor} />
           ),
         }}
       />

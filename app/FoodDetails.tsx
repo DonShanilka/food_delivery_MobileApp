@@ -49,7 +49,7 @@ function FoodDetails() {
   const navigate = useNavigation();
 
   return (
-    <ScrollView className="flex-1 bg-white">
+    <ScrollView className=" bg-white">
       {/* Header with back button */}
       <View className="px-4 pt-2 relative top-10">
         <TouchableOpacity
@@ -64,7 +64,7 @@ function FoodDetails() {
       <View className="w-full h-auto absolute top-24">
         <View className="w-full px-6 items-center justify-center py-4">
           <Image
-            style={{ width: "100%", height: 520 }}
+            style={{ width: "100%", height: "100%" }}
             source={coffeeData.image}
             className="w-full h-64 rounded-lg"
             resizeMode="cover"

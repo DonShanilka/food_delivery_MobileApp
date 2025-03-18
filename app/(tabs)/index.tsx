@@ -13,7 +13,7 @@ export default function HomeScreen() {
   return (
     <View className="bg-white w-full h-full">
       <View
-        className="w-full h-96 bg-green-800"
+        className="w-full h-96 bg-green-900"
         style={{ borderBottomRightRadius: 30, borderBottomLeftRadius: 30 }}
       >
         <Text className="text-white text-xl font-bold top-20 left-5">Hellow Shanilka!</Text>
