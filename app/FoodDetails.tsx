@@ -53,10 +53,10 @@ function FoodDetails() {
       {/* Header with back button */}
       <View className="px-4 pt-2 relative top-10">
         <TouchableOpacity
-          className="rounded-full bg-gray-100 p-2 w-10 h-10 items-center justify-center"
+          className="rounded-full bg-white p-2 w-10 h-10 items-center justify-center border border-green-700"
           onPress={() => navigate.goBack()}
         >
-          <ArrowLeftIcon size={20} color="#333" />
+          <ArrowLeftIcon size={20} color="#006600" />
         </TouchableOpacity>
       </View>
 
