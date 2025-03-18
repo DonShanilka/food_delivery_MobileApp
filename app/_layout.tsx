@@ -1,16 +1,12 @@
 import { useFonts } from "expo-font";
-import { useEffect } from "react";
 import "react-native-reanimated";
 import React from "react";
-import { View, Text, StatusBar } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import SplashScreen from "../app/SplashScreen";
 import LoginScreen from "../app/LoginScreen";
 import SignUpScreen from "../app/SignUpScreen";
-import HomeScreen from "./(tabs)/index";
-import ProfileScreen from "./(tabs)/ProfileScreen ";
 import CartPage from "../app/CartPage";
 import FoodDetails from "../app/FoodDetails";
 import TabNavigator from "./(tabs)/_layout";

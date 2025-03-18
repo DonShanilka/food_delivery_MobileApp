@@ -13,7 +13,7 @@ const LoginScreen = ({ navigation }) => {
       <StatusBar barStyle="dark-content" />
       <View className="px-6 pt-10">
         <View className="items-center mb-12">
-          <Text className="text-blue-900 text-3xl font-bold">cignifi</Text>
+          <Text className="text-blue-900 text-3xl font-bold">HotPlate</Text>
         </View>
         
         <Text className="text-xl font-semibold mb-6">Login to your Account</Text>

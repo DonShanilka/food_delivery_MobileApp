@@ -15,7 +15,7 @@ const SignUpScreen = ({ navigation }) => {
         </View>
         
         <View className="items-center mb-12">
-          <Text className="text-blue-900 text-3xl font-bold">cignifi</Text>
+          <Text className="text-blue-900 text-3xl font-bold">HotPlate</Text>
         </View>
         
         <Text className="text-xl font-semibold mb-6">Create your Account</Text>

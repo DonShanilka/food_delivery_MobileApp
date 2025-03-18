@@ -15,7 +15,7 @@ const SplashScreen = ({ navigation }) => {
     <SafeAreaView className="flex-1 bg-green-900 justify-center items-center">
       <StatusBar barStyle="light-content" />
       <View className="items-center">
-        <Text className="text-white text-4xl font-bold">cignifi</Text>
+        <Text className="text-white text-4xl font-bold">HotPlate</Text>
         <View className="flex-row mt-2">
           {[0, 1, 2, 3].map((dot, index) => (
             <View 
