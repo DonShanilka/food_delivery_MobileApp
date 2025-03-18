@@ -1,6 +1,6 @@
 import { useNavigation } from "expo-router";
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { ScrollView, TouchableOpacity } from "react-native";
 import { Image, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
@@ -172,8 +172,8 @@ function FoodCards() {
   ];
 
   return (
-    <View className="h-full w-11/12 top-56 left-0 right-0 m-auto mt-10">
-      <Text className="font-bold mt-1">Populer Foods</Text>
+    <ScrollView className="absolute h-96 w-11/12 top-96 left-0 right-0 ">
+      <Text className="font-bold mt-3 text-xl">Populer Foods</Text>
       <View className="w-full mt-0">
         {foodItems.map((foods) => (
           <TouchableOpacity
@@ -217,7 +217,7 @@ function FoodCards() {
           </TouchableOpacity>
         ))}
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

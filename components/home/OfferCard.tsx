@@ -55,20 +55,27 @@ export default function OfferCard() {
 
   return (
     <ScrollView
-    className="rounded-3xl"
-      ref={scrollViewRef}  
-      horizontal={true}
-      // showsHorizontalScrollIndicator={false}
-    >
-      {imageData.map((item) => (
-        <View key={item.id}>
-          <Image
-            source={{ uri: item.url }}
-            style={{ width: imageWidth, height: 120 }}
-          />
-          {/* <Text className="mt-2 text-lg font-bold">{item.title}</Text> */}
-        </View>
-      ))}
-    </ScrollView>
+  className="rounded-3xl top-0"
+  ref={scrollViewRef}
+  horizontal={true}
+  style={{
+    shadowColor: '#003300',
+    shadowOffset: { width: 6, height: 10}, 
+    shadowOpacity: 1, 
+    shadowRadius: 8, 
+    elevation: 8, 
+  }}
+>
+  {imageData.map((item) => (
+    <View key={item.id}>
+      <Image
+        source={{ uri: item.url }}
+        style={{ width: imageWidth, height: 140 }}
+      />
+      {/* <Text className="mt-2 text-lg font-bold">{item.title}</Text> */}
+    </View>
+  ))}
+</ScrollView>
+
   );
 }

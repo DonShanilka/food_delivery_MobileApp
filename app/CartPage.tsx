@@ -12,7 +12,7 @@ export default function CartPage() {
 
   return (
     <>
-    <View className="absolute bg-white h-full w-full">
+    <View className="bg-white h-full w-full">
       {addToCartItem.length === 0 ? (
         <View className="bg-white h-full w-full top-0">
           <Image
