@@ -4,6 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Platform } from 'react-native';
 import HomeScreen from '../(tabs)/index';
 import ExploreScreen from './ProfileScreen ';
+import OrderScreen from './OrderScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -40,6 +41,16 @@ export default function Tabs() {
           title: 'Home',
           tabBarIcon: ({ focused }) => (
             <FontAwesome name="home" size={28} color={focused ? activeColor : inactiveColor} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="OrderScreen"
+        component={OrderScreen}
+        options={{
+          title: 'History',
+          tabBarIcon: ({ focused }) => (
+            <FontAwesome name="history" size={28} color={focused ? activeColor : inactiveColor} />
           ),
         }}
       />
