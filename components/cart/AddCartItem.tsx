@@ -127,7 +127,7 @@ function AddCartItem() {
   return (
     <>
       {/* BackTo Home and Delete All Button */}
-      <View className="w-11/12 h-16 absolute top-10 left-5 right-5">
+      <View className="w-11/12 h-16 absolute top-4 left-5 right-5">
         {/* Delete All Button */}
         <TouchableOpacity className="absolute top-0 right-0 w-12 h-16" onPress={clearCart}>
           <Ionicons
@@ -166,7 +166,7 @@ function AddCartItem() {
 
       {/* Items */}
       {cartItems.length > 0 && (
-        <ScrollView className="w-full absolute top-28 h-2/3 bg-white">
+        <ScrollView className="w-full absolute top-20 h-2/3 bg-white">
           {cartItems.map((item) => (
             <View
               key={item.id}
@@ -190,14 +190,14 @@ function AddCartItem() {
               {/* Quantity Control (Plus & Minus) */}
               <View className="absolute flex-row items-center justify-center bottom-2 right-2">
                 <TouchableOpacity 
-                  className="bg-emerald-500 w-6 h-6 rounded-full items-center justify-center"
+                  className="bg-green-800 w-6 h-6 rounded-full items-center justify-center"
                   onPress={() => decreaseQuantity(item.id)}
                 >
                   <Icon name="minus" size={12} color="#fff" />
                 </TouchableOpacity>
                 <Text className="mx-4 font-bold">{item.quantity}</Text>
                 <TouchableOpacity 
-                  className="bg-emerald-500 w-6 h-6 rounded-full items-center justify-center"
+                  className="bg-green-800 w-6 h-6 rounded-full items-center justify-center"
                   onPress={() => increaseQuantity(item.id)}
                 >
                   <Icon name="plus" size={12} color="#fff" />

@@ -81,13 +81,13 @@ function PlaceOrder({ subTotal, delivery, promoDiscount, setPromoDiscount }) {
         )}
         <View className="h-14 w-full">
           <Text className="absolute left-0 top-4 font-bold text-gray-800 text-2xl">Total</Text>
-          <Text className="absolute right-0 top-4 font-bold text-emerald-600 text-2xl">${calculateTotal()}</Text>
+          <Text className="absolute right-0 top-4 font-bold text-emerald-500 text-2xl">${calculateTotal()}</Text>
         </View>
       </View>
 
       {/* Place Order Button */}
       <TouchableOpacity 
-        className="w-11/12 bg-emerald-500 absolute z-10 h-12 bottom-8 left-5 right-5 rounded-full justify-center"
+        className="w-11/12 bg-green-900 absolute z-10 h-12 bottom-8 left-5 right-5 rounded-full justify-center"
         onPress={() => Alert.alert("Success", "Your order has been placed successfully!")}
       >
         <Text className="text-center font-bold text-white">
