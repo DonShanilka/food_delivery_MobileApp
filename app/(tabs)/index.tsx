@@ -6,6 +6,7 @@ import SerchBar from "@/components/home/SerchBar";
 import Icon from "react-native-vector-icons/FontAwesome";
 import FoodCards from "@/components/home/FoodCards";
 import { useNavigation } from "@react-navigation/native";
+import FoodCategories from "@/components/home/FoodCategories";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -27,6 +28,7 @@ export default function HomeScreen() {
         <SerchBar/>
       </View>
       <OfferCard/>
+      <FoodCategories/>
       <FoodCards/>
     </View>
   );
