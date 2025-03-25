@@ -11,9 +11,9 @@ const LoginScreen = ({ navigation }) => {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <StatusBar barStyle="dark-content" />
-      <View className="px-6 pt-10">
+      <View className="px-6 pt-10 absolute w-full top-64">
         <View className="items-center mb-12">
-          <Text className="text-blue-900 text-3xl font-bold">HotPlate</Text>
+          <Text className="text-green-900 text-3xl font-bold">HotPlate</Text>
         </View>
         
         <Text className="text-xl font-semibold mb-6">Login to your Account</Text>
@@ -21,16 +21,16 @@ const LoginScreen = ({ navigation }) => {
         <View className="mb-4">
           <TextInput 
             placeholder="Email" 
-            className="border border-gray-300 rounded-md px-4 py-3 mb-4"
+            className="border border-gray-300 rounded-md px-4 py-3 mb-4 h-14"
           />
           <TextInput 
             placeholder="Password" 
             secureTextEntry
-            className="border border-gray-300 rounded-md px-4 py-3"
+            className="border border-gray-300 rounded-md px-4 py-3 h-14"
           />
         </View>
         
-        <TouchableOpacity className="bg-green-900 py-3 rounded-md mb-6" onPress={() => nav.navigate("Main")}>
+        <TouchableOpacity className="bg-green-900 py-3 rounded-md mb-6 h-14" onPress={() => nav.navigate("Main")}>
           <Text className="text-white text-center font-semibold">Sign in</Text>
         </TouchableOpacity>
         
@@ -43,12 +43,6 @@ const LoginScreen = ({ navigation }) => {
         <View className="flex-row justify-center space-x-6 mb-6">
           <TouchableOpacity className="border border-gray-300 p-3 rounded-md">
             <Text>G</Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="border border-gray-300 p-3 rounded-md">
-            <Text>f</Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="border border-gray-300 p-3 rounded-md">
-            <Text>t</Text>
           </TouchableOpacity>
         </View>
         

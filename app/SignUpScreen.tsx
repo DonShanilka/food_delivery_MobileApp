@@ -7,7 +7,7 @@ const SignUpScreen = ({ navigation }) => {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <StatusBar barStyle="dark-content" />
-      <View className="px-6 pt-10">
+      <View className="px-6 pt-10 top-64">
         <View className="flex-row items-center mb-4">
           <TouchableOpacity onPress={() => navigation.goBack()}>
             <Text className="text-blue-900">←</Text>
@@ -15,7 +15,7 @@ const SignUpScreen = ({ navigation }) => {
         </View>
         
         <View className="items-center mb-12">
-          <Text className="text-blue-900 text-3xl font-bold">HotPlate</Text>
+          <Text className="text-green-900 text-3xl font-bold">HotPlate</Text>
         </View>
         
         <Text className="text-xl font-semibold mb-6">Create your Account</Text>
@@ -23,21 +23,21 @@ const SignUpScreen = ({ navigation }) => {
         <View className="mb-4">
           <TextInput 
             placeholder="Email" 
-            className="border border-gray-300 rounded-md px-4 py-3 mb-4"
+            className="border border-gray-300 rounded-md px-4 py-3 mb-4 14"
           />
           <TextInput 
             placeholder="Password" 
             secureTextEntry
-            className="border border-gray-300 rounded-md px-4 py-3 mb-4"
+            className="border border-gray-300 rounded-md px-4 py-3 mb-4 14"
           />
           <TextInput 
             placeholder="Confirm Password" 
             secureTextEntry
-            className="border border-gray-300 rounded-md px-4 py-3"
+            className="border border-gray-300 rounded-md px-4 py-3 14"
           />
         </View>
         
-        <TouchableOpacity className="bg-green-900 py-3 rounded-md mb-6">
+        <TouchableOpacity className="bg-green-900 py-3 rounded-md mb-6 14">
           <Text className="text-white text-center font-semibold">Sign up</Text>
         </TouchableOpacity>
         
@@ -50,12 +50,6 @@ const SignUpScreen = ({ navigation }) => {
         <View className="flex-row justify-center space-x-6">
           <TouchableOpacity className="border border-gray-300 p-3 rounded-md">
             <Text>G</Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="border border-gray-300 p-3 rounded-md">
-            <Text>f</Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="border border-gray-300 p-3 rounded-md">
-            <Text>t</Text>
           </TouchableOpacity>
         </View>
       </View>
