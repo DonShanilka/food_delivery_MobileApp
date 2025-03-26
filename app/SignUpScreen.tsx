@@ -10,7 +10,7 @@ const SignUpScreen = ({ navigation }) => {
       <View className="px-6 pt-10 top-64">
         <View className="flex-row items-center mb-4">
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text className="text-blue-900">←</Text>
+            <Text className="text-green-900">←</Text>
           </TouchableOpacity>
         </View>
         
