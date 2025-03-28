@@ -35,4 +35,6 @@ const itemSlice = createSlice({
         console.log("Fetching Item Pending ...")
       })
   }
-})
+});
+
+export default itemSlice.reducer;
