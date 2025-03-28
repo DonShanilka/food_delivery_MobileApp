@@ -1,11 +1,23 @@
+import { fetchItems } from "@/reducer/ItemSlice";
 import { useNavigation } from "expo-router";
-import React from "react";
+import React, { useEffect } from "react";
 import { ScrollView, TouchableOpacity } from "react-native";
 import { Image, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function FoodCards() {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const items = useSelector((state) => state.items || []);
+
+  console.log("Get All Items: ", items);
+  
+  useEffect(() => {
+    dispatch(fetchItems())
+  }, [dispatch])
 
   const foodItems = [
     {
@@ -105,7 +117,7 @@ function FoodCards() {
     <ScrollView className="absolute h-2/4 w-full top-2/4">
       <Text className="font-bold mt-3 ml-5 text-xl">Populer Foods</Text>
       <View className="w-full mt-4">
-        {foodItems.map((foods) => (
+        {items.map((foods:any) => (
           <TouchableOpacity
             onPress={() => navigation.navigate("FoodDetails")}
             key={foods.id}
