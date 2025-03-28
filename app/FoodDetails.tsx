@@ -1,3 +1,4 @@
+import { useRoute } from "@react-navigation/native";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -19,7 +20,10 @@ import {
 
 function FoodDetails() {
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState("Medium");
+  const [selectedSize, setSelectedSize] = useState("Small");
+
+  const route = useRoute();
+  const { foodData } = route.params;
 
   // Dummy data based on the image
   const coffeeData = {
@@ -29,8 +33,8 @@ function FoodDetails() {
     prepTime: 16, // minutes
     sizes: [
       { name: "Small", price: 0 },
-      { name: "Medium", price: 5 },
-      { name: "Large", price: 8 },
+      { name: "Medium", price: 3},
+      { name: "Large", price: 5},
     ],
     basePrice: 19.125, // Base price per coffee
     image: require("../assets/images/coffee.jpg"),
@@ -40,7 +44,7 @@ function FoodDetails() {
   const calculateTotal = () => {
     const sizePrice =
       coffeeData.sizes.find((size) => size.name === selectedSize)?.price || 0;
-    return ((coffeeData.basePrice + sizePrice) * quantity).toFixed(2);
+    return ((foodData.price + sizePrice) * quantity).toFixed(2);
   };
 
   const increaseQuantity = () => setQuantity(quantity + 1);
@@ -65,7 +69,7 @@ function FoodDetails() {
         <View className="w-full px-6 items-center justify-center py-4">
           <Image
             style={{ width: "100%", height: "100%" }}
-            source={coffeeData.image}
+            source={{ uri: foodData.image }}
             className="w-full h-64 rounded-lg"
             resizeMode="cover"
           />
@@ -75,7 +79,7 @@ function FoodDetails() {
         <View className="px-6 py-4">
           <View className="flex-row justify-between items-center">
             <Text className="text-3xl font-bold text-green-800">
-              {coffeeData.name}
+              {foodData.itemName}
             </Text>
             <TouchableOpacity>
               <HeartIcon size={24} color="#036" />
