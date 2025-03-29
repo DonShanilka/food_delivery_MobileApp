@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { ScrollView, TouchableOpacity, Image, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useSelector, useDispatch } from "react-redux";
-import { useCart } from "../../context/CartProvider"; // Import the cart context
+import { useCart } from "../../provider/CartProvider"; // Import the cart context
 
 function FoodCards() {
   const navigation = useNavigation();
@@ -21,6 +21,7 @@ function FoodCards() {
     const cartItem = {
       name: foodItem.itemName, // Match the structure expected by CartScreen
       price: foodItem.price,
+      description: foodItem.description,
       image: foodItem.image,
       size: "Regular", // You can add size selection if needed
       quantity: 1

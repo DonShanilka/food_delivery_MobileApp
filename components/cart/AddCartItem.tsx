@@ -4,7 +4,7 @@ import { TouchableOpacity, Image, Text, View, ScrollView, Alert } from "react-na
 import Icon from "react-native-vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "expo-router";
-import { useCart } from "../../context/CartProvider";
+import { useCart } from "../../provider/CartProvider";
 import PlaceOrder from "./PlaceOrder";
 
 function AddCartItem() {
@@ -51,7 +51,7 @@ function AddCartItem() {
 
   return (
     <>
-      <View className="w-11/12 h-16 absolute top-4 left-5 right-5">
+      <View className="w-11/12 h-28 absolute top-6 left-5 right-5">
         <TouchableOpacity className="absolute top-0 right-0 w-12 h-16" onPress={clearCart}>
           <Ionicons name="trash-bin" size={26} color="black" />
         </TouchableOpacity>
@@ -59,7 +59,7 @@ function AddCartItem() {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back-outline" size={24} color="black" />
         </TouchableOpacity>
-        <Text className="top-4 left-12 font-bold text-2xl">Cart</Text>
+        <Text className="top-0 absolute left-12 font-bold text-2xl">Cart</Text>
       </View>
       
       {cart.length === 0 ? (
@@ -75,9 +75,9 @@ function AddCartItem() {
           {cart.map((item) => (
             <View key={`${item.name}-${item.size}`} className="h-28 w-11/12 m-auto mt-4 mb-1 rounded-lg border border-gray-100 bg-gray-50 p-3">
               <Text className="ml-28 font-bold">{item.name}</Text>
-              <Text className="ml-28 text-gray-600">{item.shopName || ''}</Text>
+              <Text className="ml-28 text-gray-600 m-1">{item.description}</Text>
               <Image source={{ uri: item.image }} className="w-24 h-24 absolute top-2 left-3" />
-              <Text className="ml-28 font-bold">${item.price}</Text>
+              <Text className="ml-28 font-bold text-green-900">${item.price}</Text>
               <TouchableOpacity className="absolute top-1 right-2" onPress={() => removeFromCart(item.name, item.size)}>
                 <Icon name="remove" color={"#a6a6a6"} size={10} />
               </TouchableOpacity>

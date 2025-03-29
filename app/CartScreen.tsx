@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import AddCartItem from "@/components/cart/AddCartItem";
-import { useCart } from "../context/CartProvider";
+import { useCart } from "../provider/CartProvider";
 
 const carticon = require("../assets/icons/cartIcon.png");
 

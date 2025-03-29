@@ -5,7 +5,7 @@ import { StatusBar } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Provider } from "react-redux"; // Redux Provider
 import { store } from "../store/store"; // Redux store
-import { CartProvider } from "../context/CartProvider"; // Import CartProvider
+import { CartProvider } from "../provider/CartProvider"; // Import CartProvider
 
 import SplashScreen from "../app/SplashScreen";
 import LoginScreen from "../app/LoginScreen";

@@ -42,9 +42,9 @@ function PlaceOrder({ totalPrice, delivery = 2.99 }) {
   };
 
   return (
-    <View className="w-full h-96 absolute bottom-0 bg-white">
+    <View className="w-full h-80 absolute bottom-0 bg-white">
       {/* Promotion */}
-      <View className="w-11/12 bg-emerald-50 h-12 absolute top-4 left-5 right-5 rounded-lg border-emerald-200 border flex-row items-center pl-3 pr-3">
+      <View className="w-11/12 bg-emerald-50 h-12 absolute top-0 left-5 right-5 rounded-lg border-emerald-200 border flex-row items-center pl-3 pr-3">
         <Icon name="ticket" size={16} color="#10b981" />
         <TextInput
           placeholder="Enter promo code"
@@ -65,7 +65,7 @@ function PlaceOrder({ totalPrice, delivery = 2.99 }) {
       </View>
 
       {/* Cal Total */}
-      <View className="w-11/12 bg-white h-48 absolute top-24 left-5 right-5 m-auto rounded-lg">
+      <View className="w-11/12 bg-white h-48 absolute top-16 left-5 right-5 m-auto rounded-lg">
         <View className="h-14 w-full border-b-2 border-gray-200">
           <Text className="absolute left-0 top-4 font-bold text-gray-400">SubTotal</Text>
           <Text className="absolute right-0 top-4 font-bold text-black text-xl">${totalPrice.toFixed(2)}</Text>
@@ -88,7 +88,7 @@ function PlaceOrder({ totalPrice, delivery = 2.99 }) {
 
       {/* Place Order Button */}
       <TouchableOpacity 
-        className="w-11/12 bg-green-900 absolute z-10 h-12 bottom-8 left-5 right-5 rounded-full justify-center"
+        className="w-11/12 bg-green-900 absolute z-10 h-12 bottom-6 left-5 right-5 rounded-full justify-center"
         onPress={() => Alert.alert("Success", "Your order has been placed successfully!")}
       >
         <Text className="text-center font-bold text-white">
