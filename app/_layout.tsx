@@ -3,13 +3,14 @@ import "react-native-reanimated";
 import React from "react";
 import { StatusBar } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Provider } from "react-redux"; // Import Provider
-import { store } from "../store/store"; // Import your Redux store
+import { Provider } from "react-redux"; // Redux Provider
+import { store } from "../store/store"; // Redux store
+import { CartProvider } from "../context/CartProvider"; // Import CartProvider
 
 import SplashScreen from "../app/SplashScreen";
 import LoginScreen from "../app/LoginScreen";
 import SignUpScreen from "../app/SignUpScreen";
-import CartPage from "../app/CartPage";
+import CartScreen from "./CartScreen";
 import FoodDetails from "../app/FoodDetails";
 import TabNavigator from "./(tabs)/_layout";
 
@@ -25,20 +26,21 @@ export default function RootLayout() {
   }
 
   return (
-    // Wrap your component with the Provider and pass the store
     <Provider store={store}>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* Auth Flow */}
-        <Stack.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }} />
+      <CartProvider> {/* Wrap the app with CartProvider */}
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          {/* Auth Flow */}
+          <Stack.Screen name="Splash" component={SplashScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="SignUp" component={SignUpScreen} />
 
-        {/* Main App Flow */}
-        <Stack.Screen name="Main" component={TabNavigator} options={{ headerShown: false }} />
-        <Stack.Screen name="CartPage" component={CartPage} options={{ headerShown: false }} />
-        <Stack.Screen name="FoodDetails" component={FoodDetails} options={{ headerShown: false }} />
-      </Stack.Navigator>
-      <StatusBar />
+          {/* Main App Flow */}
+          <Stack.Screen name="Main" component={TabNavigator} />
+          <Stack.Screen name="CartScreen" component={CartScreen} />
+          <Stack.Screen name="FoodDetails" component={FoodDetails} />
+        </Stack.Navigator>
+        <StatusBar />
+      </CartProvider>
     </Provider>
   );
 }

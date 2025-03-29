@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import { Text, TouchableOpacity, TextInput, View, Alert } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-function PlaceOrder({ subTotal, delivery, promoDiscount, setPromoDiscount }) {
+function PlaceOrder({ totalPrice, delivery = 2.99 }) {
   const [promoCode, setPromoCode] = useState("");
   const [promoApplied, setPromoApplied] = useState(false);
+  const [promoDiscount, setPromoDiscount] = useState(0);
 
   // Available promo codes (in a real app, these would come from an API)
   const availablePromoCodes = {
@@ -24,7 +25,7 @@ function PlaceOrder({ subTotal, delivery, promoDiscount, setPromoDiscount }) {
     const discountPercentage = availablePromoCodes[promoCode.toUpperCase()];
     
     if (discountPercentage) {
-      const discount = (subTotal * discountPercentage) / 100;
+      const discount = (totalPrice * discountPercentage) / 100;
       setPromoDiscount(discount);
       setPromoApplied(true);
       Alert.alert("Success", `${discountPercentage}% discount applied!`);
@@ -37,7 +38,7 @@ function PlaceOrder({ subTotal, delivery, promoDiscount, setPromoDiscount }) {
 
   // Calculate total price
   const calculateTotal = () => {
-    return (subTotal + delivery - promoDiscount).toFixed(2);
+    return (totalPrice + delivery - promoDiscount).toFixed(2);
   };
 
   return (
@@ -67,7 +68,7 @@ function PlaceOrder({ subTotal, delivery, promoDiscount, setPromoDiscount }) {
       <View className="w-11/12 bg-white h-48 absolute top-24 left-5 right-5 m-auto rounded-lg">
         <View className="h-14 w-full border-b-2 border-gray-200">
           <Text className="absolute left-0 top-4 font-bold text-gray-400">SubTotal</Text>
-          <Text className="absolute right-0 top-4 font-bold text-black text-xl">${subTotal.toFixed(2)}</Text>
+          <Text className="absolute right-0 top-4 font-bold text-black text-xl">${totalPrice.toFixed(2)}</Text>
         </View>
         <View className="h-14 w-full border-b-2 border-gray-200">
           <Text className="absolute left-0 top-4 font-bold text-gray-400">Delivery</Text>
