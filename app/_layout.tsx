@@ -27,7 +27,9 @@ export default function RootLayout() {
 
   return (
     <Provider store={store}>
-      <CartProvider> {/* Wrap the app with CartProvider */}
+      <CartProvider>
+        {" "}
+        {/* Wrap the app with CartProvider */}
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           {/* Auth Flow */}
           <Stack.Screen name="Splash" component={SplashScreen} />

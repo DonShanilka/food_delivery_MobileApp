@@ -24,12 +24,12 @@ function FoodCards() {
       description: foodItem.description,
       image: foodItem.image,
       size: "Regular", // You can add size selection if needed
-      quantity: 1
+      quantity: 1,
     };
-    
+
     // Add to cart using the context
     addToCart(cartItem);
-    
+
     // Optional: show feedback to the user
     // Alert.alert("Added to cart", `${foodItem.itemName} added to your cart`);
   };
@@ -53,15 +53,32 @@ function FoodCards() {
               marginVertical: 8,
               marginHorizontal: 16,
             }}
-            onPress={() => navigation.navigate("FoodDetails", { foodData: foods })}
+            onPress={() =>
+              navigation.navigate("FoodDetails", { foodData: foods })
+            }
           >
-            <Text className="text-green-800 text-2xl font-bold mt-2 left-40">{foods.itemName}</Text>
-            <Text className="top-2 left-40 mt-0 w-60 text-sm text-gray-600">{foods.description}</Text>
-            <Text className="top-2 left-40 mt-2 text-sm text-gray-400">{foods.shopName}</Text>
-            <Text className="top-4 left-40 text-green-800 text-2xl font-bold">$ {foods.price}</Text>
+            <Text className="text-green-800 text-2xl font-bold mt-2 left-40">
+              {foods.itemName}
+            </Text>
+            <Text className="top-2 left-40 mt-0 w-60 text-sm text-gray-600">
+              {foods.description}
+            </Text>
+            <Text className="top-2 left-40 mt-2 text-sm text-gray-400">
+              {foods.shopName}
+            </Text>
+            <Text className="top-4 left-40 text-green-800 text-2xl font-bold">
+              $ {foods.price}
+            </Text>
             <Image
               source={{ uri: foods.image }}
-              style={{ width: 100, height: 100, borderRadius: 5, position: "absolute", top: 26, left: 10 }}
+              style={{
+                width: 100,
+                height: 100,
+                borderRadius: 5,
+                position: "absolute",
+                top: 26,
+                left: 10,
+              }}
             />
             <TouchableOpacity
               className="bg-emerald-800 w-10 h-10 absolute bottom-5 right-5 rounded-full items-center justify-center"

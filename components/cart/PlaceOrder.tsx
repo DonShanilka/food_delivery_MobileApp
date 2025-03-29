@@ -10,9 +10,9 @@ function PlaceOrder({ totalPrice, delivery = 2.99 }) {
 
   // Available promo codes (in a real app, these would come from an API)
   const availablePromoCodes = {
-    "FIRST10": 10,
-    "WELCOME20": 20,
-    "SPECIAL15": 15
+    FIRST10: 10,
+    WELCOME20: 20,
+    SPECIAL15: 15,
   };
 
   // Apply promo code
@@ -23,7 +23,7 @@ function PlaceOrder({ totalPrice, delivery = 2.99 }) {
     }
 
     const discountPercentage = availablePromoCodes[promoCode.toUpperCase()];
-    
+
     if (discountPercentage) {
       const discount = (totalPrice * discountPercentage) / 100;
       setPromoDiscount(discount);
@@ -53,8 +53,10 @@ function PlaceOrder({ totalPrice, delivery = 2.99 }) {
           onChangeText={setPromoCode}
           editable={!promoApplied}
         />
-        <TouchableOpacity 
-          className={`px-4 py-1 rounded-lg ${promoApplied ? 'bg-gray-300' : 'bg-emerald-500'}`}
+        <TouchableOpacity
+          className={`px-4 py-1 rounded-lg ${
+            promoApplied ? "bg-gray-300" : "bg-emerald-500"
+          }`}
           onPress={applyPromoCode}
           disabled={promoApplied}
         >
@@ -67,33 +69,49 @@ function PlaceOrder({ totalPrice, delivery = 2.99 }) {
       {/* Cal Total */}
       <View className="w-11/12 bg-white h-48 absolute top-16 left-5 right-5 m-auto rounded-lg">
         <View className="h-14 w-full border-b-2 border-gray-200">
-          <Text className="absolute left-0 top-4 font-bold text-gray-400">SubTotal</Text>
-          <Text className="absolute right-0 top-4 font-bold text-black text-xl">${totalPrice.toFixed(2)}</Text>
+          <Text className="absolute left-0 top-4 font-bold text-gray-400">
+            SubTotal
+          </Text>
+          <Text className="absolute right-0 top-4 font-bold text-black text-xl">
+            ${totalPrice.toFixed(2)}
+          </Text>
         </View>
         <View className="h-14 w-full border-b-2 border-gray-200">
-          <Text className="absolute left-0 top-4 font-bold text-gray-400">Delivery</Text>
-          <Text className="absolute right-0 top-4 font-bold text-black text-xl">${delivery.toFixed(2)}</Text>
+          <Text className="absolute left-0 top-4 font-bold text-gray-400">
+            Delivery
+          </Text>
+          <Text className="absolute right-0 top-4 font-bold text-black text-xl">
+            ${delivery.toFixed(2)}
+          </Text>
         </View>
         {promoDiscount > 0 && (
           <View className="h-14 w-full border-b-2 border-gray-200">
-            <Text className="absolute left-0 top-4 font-bold text-green-600">Discount</Text>
-            <Text className="absolute right-0 top-4 font-bold text-green-600 text-xl">-${promoDiscount.toFixed(2)}</Text>
+            <Text className="absolute left-0 top-4 font-bold text-green-600">
+              Discount
+            </Text>
+            <Text className="absolute right-0 top-4 font-bold text-green-600 text-xl">
+              -${promoDiscount.toFixed(2)}
+            </Text>
           </View>
         )}
         <View className="h-14 w-full">
-          <Text className="absolute left-0 top-4 font-bold text-gray-800 text-2xl">Total</Text>
-          <Text className="absolute right-0 top-4 font-bold text-emerald-500 text-2xl">${calculateTotal()}</Text>
+          <Text className="absolute left-0 top-4 font-bold text-gray-800 text-2xl">
+            Total
+          </Text>
+          <Text className="absolute right-0 top-4 font-bold text-emerald-500 text-2xl">
+            ${calculateTotal()}
+          </Text>
         </View>
       </View>
 
       {/* Place Order Button */}
-      <TouchableOpacity 
+      <TouchableOpacity
         className="w-11/12 bg-green-900 absolute z-10 h-12 bottom-6 left-5 right-5 rounded-full justify-center"
-        onPress={() => Alert.alert("Success", "Your order has been placed successfully!")}
+        onPress={() =>
+          Alert.alert("Success", "Your order has been placed successfully!")
+        }
       >
-        <Text className="text-center font-bold text-white">
-          Place Order
-        </Text>
+        <Text className="text-center font-bold text-white">Place Order</Text>
       </TouchableOpacity>
     </View>
   );

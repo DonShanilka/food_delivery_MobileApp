@@ -17,7 +17,7 @@ function SearchBar() {
         name="search"
         size={16}
         color={"#666666"}
-        className="top-4 left-3" 
+        className="top-4 left-3"
       />
     </View>
   );

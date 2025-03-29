@@ -1,16 +1,16 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { FontAwesome } from '@expo/vector-icons';
-import { Platform } from 'react-native';
-import HomeScreen from '../(tabs)/index';
-import ExploreScreen from './ProfileScreen ';
-import OrderScreen from './OrderScreen';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { FontAwesome } from "@expo/vector-icons";
+import { Platform } from "react-native";
+import HomeScreen from "../(tabs)/index";
+import ExploreScreen from "./ProfileScreen ";
+import OrderScreen from "./OrderScreen";
 
 const Tab = createBottomTabNavigator();
 
 export default function Tabs() {
-  const activeColor = '#009900';
-  const inactiveColor = '#B0B0B0';
+  const activeColor = "#009900";
+  const inactiveColor = "#B0B0B0";
 
   return (
     <Tab.Navigator
@@ -18,18 +18,18 @@ export default function Tabs() {
         headerShown: false,
         tabBarStyle: Platform.select({
           ios: {
-            position: 'absolute',
-            backgroundColor: 'white',
+            position: "absolute",
+            backgroundColor: "white",
             height: 60,
-            shadowColor: '#000',
+            shadowColor: "#000",
             shadowOffset: { width: 0, height: -2 },
             shadowOpacity: 0.1,
             shadowRadius: 10,
           },
           default: {
-            backgroundColor: 'white',
+            backgroundColor: "white",
             height: 50,
-            elevation: 5, 
+            elevation: 5,
           },
         }),
       }}
@@ -38,9 +38,13 @@ export default function Tabs() {
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'Home',
+          title: "Home",
           tabBarIcon: ({ focused }) => (
-            <FontAwesome name="home" size={28} color={focused ? activeColor : inactiveColor} />
+            <FontAwesome
+              name="home"
+              size={28}
+              color={focused ? activeColor : inactiveColor}
+            />
           ),
         }}
       />
@@ -48,9 +52,13 @@ export default function Tabs() {
         name="OrderScreen"
         component={OrderScreen}
         options={{
-          title: 'History',
+          title: "History",
           tabBarIcon: ({ focused }) => (
-            <FontAwesome name="history" size={28} color={focused ? activeColor : inactiveColor} />
+            <FontAwesome
+              name="history"
+              size={28}
+              color={focused ? activeColor : inactiveColor}
+            />
           ),
         }}
       />
@@ -58,9 +66,13 @@ export default function Tabs() {
         name="ProfileScreen"
         component={ExploreScreen}
         options={{
-          title: 'Profile',
+          title: "Profile",
           tabBarIcon: ({ focused }) => (
-            <FontAwesome name="user" size={28} color={focused ? activeColor : inactiveColor} />
+            <FontAwesome
+              name="user"
+              size={28}
+              color={focused ? activeColor : inactiveColor}
+            />
           ),
         }}
       />

@@ -33,8 +33,8 @@ function FoodDetails() {
     prepTime: 16, // minutes
     sizes: [
       { name: "Small", price: 0 },
-      { name: "Medium", price: 3},
-      { name: "Large", price: 5},
+      { name: "Medium", price: 3 },
+      { name: "Large", price: 5 },
     ],
     basePrice: 19.125, // Base price per coffee
     image: require("../assets/images/coffee.jpg"),

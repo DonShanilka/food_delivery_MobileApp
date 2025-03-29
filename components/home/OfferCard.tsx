@@ -26,10 +26,10 @@ export default function OfferCard() {
   ];
 
   const scrollViewRef = useRef(null);
-  const [scrollPosition, setScrollPosition] = useState(0); 
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const screenWidth = Dimensions.get("window").width;
-  const imageWidth = screenWidth * 1; 
+  const imageWidth = screenWidth * 1;
 
   const intervalRef = useRef(null);
 
@@ -38,9 +38,9 @@ export default function OfferCard() {
       setScrollPosition((prevPosition) => {
         const newPosition = prevPosition + imageWidth;
         if (newPosition >= imageWidth * imageData.length) {
-          return 0; 
+          return 0;
         }
-        return newPosition; 
+        return newPosition;
       });
     }, 3000);
 
@@ -55,28 +55,27 @@ export default function OfferCard() {
 
   return (
     <ScrollView
-  className="absolute rounded-3xl top-72 w-11/12 left-5"
-  ref={scrollViewRef}
-  horizontal={true}
-  style={{
-    shadowColor: '#003300',
-    shadowOffset: { width: 6, height: 10}, 
-    shadowOpacity: 1, 
-    shadowRadius: 8, 
-    height: 160,
-    elevation: 8, 
-  }}
->
-  {imageData.map((item) => (
-    <View key={item.id}>
-      <Image
-        source={{ uri: item.url }}
-        style={{ width: imageWidth, height: 160 }}
-      />
-      {/* <Text className="mt-2 text-lg font-bold">{item.title}</Text> */}
-    </View>
-  ))}
-</ScrollView>
-
+      className="absolute rounded-3xl top-72 w-11/12 left-5"
+      ref={scrollViewRef}
+      horizontal={true}
+      style={{
+        shadowColor: "#003300",
+        shadowOffset: { width: 6, height: 10 },
+        shadowOpacity: 1,
+        shadowRadius: 8,
+        height: 160,
+        elevation: 8,
+      }}
+    >
+      {imageData.map((item) => (
+        <View key={item.id}>
+          <Image
+            source={{ uri: item.url }}
+            style={{ width: imageWidth, height: 160 }}
+          />
+          {/* <Text className="mt-2 text-lg font-bold">{item.title}</Text> */}
+        </View>
+      ))}
+    </ScrollView>
   );
 }

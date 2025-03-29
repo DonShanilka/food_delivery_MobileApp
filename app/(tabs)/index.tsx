@@ -17,19 +17,28 @@ export default function HomeScreen() {
         className="w-full h-96 bg-green-900"
         style={{ borderBottomRightRadius: 30, borderBottomLeftRadius: 30 }}
       >
-        <Text className="text-white text-xl font-bold top-20 left-5">Hellow Shanilka!</Text>
-        <Text className="text-white text-3xl font-bold top-20 left-5">Place Your Order</Text>
+        <Text className="text-white text-xl font-bold top-20 left-5">
+          Hellow Shanilka!
+        </Text>
+        <Text className="text-white text-3xl font-bold top-20 left-5">
+          Place Your Order
+        </Text>
         <TouchableOpacity
           className="absolute w-12 h-12 rounded-full top-20 right-5"
           onPress={() => navigation.navigate("CartScreen")}
         >
-          <Icon name="shopping-cart" size={25} color={"#ffffff"} className="top-0 left-0 bottom-0 right-0 m-auto " />
+          <Icon
+            name="shopping-cart"
+            size={25}
+            color={"#ffffff"}
+            className="top-0 left-0 bottom-0 right-0 m-auto "
+          />
         </TouchableOpacity>
-        <SerchBar/>
+        <SerchBar />
       </View>
-      <OfferCard/>
-      <FoodCategories/>
-      <FoodCards/>
+      <OfferCard />
+      <FoodCategories />
+      <FoodCards />
     </View>
   );
 }
