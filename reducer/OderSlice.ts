@@ -1,26 +1,30 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Order } from "../model/Order";
 
-const initialState: Order[] = [];
+interface OrderState {
+  orders: any[];
+  loading: boolean;
+  error: string | null;
+}
 
-const api = axios.create({
-  baseURL: "http://192.168.1.101:3000", 
-});
-
+// Async thunk to add an order
 export const AddOrder = createAsyncThunk(
-  "order/addOrder",
-  async (orderData, { rejectWithValue }) => {
+  "order/AddOrder",
+  async (orderData: any, { rejectWithValue }) => {
     try {
-      const response = await api.post("/api/order/addOrder", orderData);
-      console.log("Order Added Successfully: ", response.data);
-      return response.data; // Return the response to the Redux store
-    } catch (error) {
-      console.error("Cannot add order: ", error);
-      return rejectWithValue(error.response?.data || "An error occurred while adding the order");
+      const response = await axios.post("http://192.168.1.101:3000/api/order/AddOrder", orderData);
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data || "Something went wrong");
     }
   }
 );
+
+const initialState: OrderState = {
+  orders: [],
+  loading: false,
+  error: null,
+};
 
 const orderSlice = createSlice({
   name: "orders",
@@ -29,19 +33,16 @@ const orderSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(AddOrder.pending, (state) => {
-        console.log("Placing Order..."); // Log during order placement
         state.loading = true;
         state.error = null;
       })
       .addCase(AddOrder.fulfilled, (state, action) => {
-        console.log("Order Placed: ", action.payload); // Verify response
         state.loading = false;
-        state.orders.push(action.payload); // Add new order to state
+        state.orders.push(action.payload); // Correctly updating array
       })
       .addCase(AddOrder.rejected, (state, action) => {
-        console.error("Order Failed: ", action.error.message); // Log error
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.payload as string;
       });
   },
 });

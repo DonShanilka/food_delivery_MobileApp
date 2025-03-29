@@ -1,4 +1,5 @@
 // PlaceOrder.tsx
+import { useNavigation } from "expo-router";
 import React, { useState } from "react";
 import { Text, TouchableOpacity, TextInput, View, Alert } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -7,6 +8,8 @@ function PlaceOrder({ totalPrice, delivery = 2.99 }) {
   const [promoCode, setPromoCode] = useState("");
   const [promoApplied, setPromoApplied] = useState(false);
   const [promoDiscount, setPromoDiscount] = useState(0);
+
+  const navigation = useNavigation();
 
   // Available promo codes (in a real app, these would come from an API)
   const availablePromoCodes = {
@@ -107,9 +110,7 @@ function PlaceOrder({ totalPrice, delivery = 2.99 }) {
       {/* Place Order Button */}
       <TouchableOpacity
         className="w-11/12 bg-green-900 absolute z-10 h-12 bottom-6 left-5 right-5 rounded-full justify-center"
-        onPress={() =>
-          Alert.alert("Success", "Your order has been placed successfully!")
-        }
+        onPress={() => navigation.navigate("AddOrderDetails")}
       >
         <Text className="text-center font-bold text-white">Place Order</Text>
       </TouchableOpacity>

@@ -11,7 +11,7 @@ const api = axios.create({
 export const fetchItems = createAsyncThunk("item/getAllItem", async () => {
   try {
     const response = await api.get("/api/item/getAllItem");
-    console.log("Response Data: ", response.data);  
+    // console.log("Response Data: ", response.data);  
     return response.data;  // Return the items to Redux store
   } catch (error) {
     console.error("Cannot fetchItems: ", error);
@@ -26,7 +26,7 @@ const itemSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchItems.fulfilled, (state, action) => {
-        console.log("Fetched Items: ", action.payload);  // Verify the data received
+        // console.log("Fetched Items: ", action.payload);  // Verify the data received
         return action.payload;  // Store fetched items in state
       })
       .addCase(fetchItems.rejected, (state, action) => {

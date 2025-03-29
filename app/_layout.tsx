@@ -12,6 +12,7 @@ import LoginScreen from "../app/LoginScreen";
 import SignUpScreen from "../app/SignUpScreen";
 import CartScreen from "./CartScreen";
 import FoodDetails from "../app/FoodDetails";
+import AddOrderDetails from "../app/AddOrderDetails";
 import TabNavigator from "./(tabs)/_layout";
 
 const Stack = createNativeStackNavigator();
@@ -35,6 +36,7 @@ export default function RootLayout() {
           <Stack.Screen name="Splash" component={SplashScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="SignUp" component={SignUpScreen} />
+          <Stack.Screen name="AddOrderDetails" component={AddOrderDetails} />
 
           {/* Main App Flow */}
           <Stack.Screen name="Main" component={TabNavigator} />
