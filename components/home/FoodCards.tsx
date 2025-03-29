@@ -5,6 +5,7 @@ import { ScrollView, TouchableOpacity, Image, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "@/reducer/CartSlice";
+import AddCartItem from "../cart/AddCartItem";
 
 function FoodCards() {
   const navigation = useNavigation();
@@ -30,13 +31,14 @@ function FoodCards() {
               elevation: 2,
               marginVertical: 8,
               marginHorizontal: 16,
-            }}>
+            }}
+            onPress={() => navigation.navigate("FoodDetails", { foodData: foods })}>
             <Text className="text-green-800 text-2xl font-bold mt-2 left-40">{foods.itemName}</Text>
             <Text className="top-2 left-40 mt-0 w-60 text-sm text-gray-600">{foods.description}</Text>
             <Text className="top-2 left-40 mt-2 text-sm text-gray-400">{foods.shopName}</Text>
             <Text className="top-4 left-40 text-green-800 text-2xl font-bold">$ {foods.price}</Text>
             <Image source={{ uri: foods.image }} style={{ width: 100, height: 100, borderRadius: 5, position: "absolute", top: 26, left: 10 }}/>
-            <TouchableOpacity className="bg-emerald-800 w-10 h-10 absolute bottom-5 right-5 rounded-full items-center justify-center" onPress={() => dispatch(addToCart(foods))}>
+            <TouchableOpacity className="bg-emerald-800 w-10 h-10 absolute bottom-5 right-5 rounded-full items-center justify-center" onPress={() => navigation.navigate("CartPage", { foodData: foods })}>
               <Icon size={20} name="plus" color={"white"} />
             </TouchableOpacity>
           </TouchableOpacity>
