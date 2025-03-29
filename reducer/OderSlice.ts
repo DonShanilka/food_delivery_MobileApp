@@ -21,3 +21,29 @@ export const AddOrder = createAsyncThunk(
     }
   }
 );
+
+const orderSlice = createSlice({
+  name: "orders",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(AddOrder.pending, (state) => {
+        console.log("Placing Order..."); // Log during order placement
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(AddOrder.fulfilled, (state, action) => {
+        console.log("Order Placed: ", action.payload); // Verify response
+        state.loading = false;
+        state.orders.push(action.payload); // Add new order to state
+      })
+      .addCase(AddOrder.rejected, (state, action) => {
+        console.error("Order Failed: ", action.error.message); // Log error
+        state.loading = false;
+        state.error = action.error.message;
+      });
+  },
+});
+
+export default orderSlice.reducer;

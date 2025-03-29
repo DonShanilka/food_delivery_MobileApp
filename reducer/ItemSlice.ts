@@ -5,13 +5,13 @@ import { Item } from "../model/Item";
 const initialState: Item[] = [];
 
 const api = axios.create({
-  baseURL: "http://192.168.1.101:3000",  // Use your local IP if testing on a device
+  baseURL: "http://192.168.1.101:3000",  
 });
 
 export const fetchItems = createAsyncThunk("item/getAllItem", async () => {
   try {
     const response = await api.get("/api/item/getAllItem");
-    console.log("Response Data: ", response.data);  // Check the structure of the response
+    console.log("Response Data: ", response.data);  
     return response.data;  // Return the items to Redux store
   } catch (error) {
     console.error("Cannot fetchItems: ", error);
